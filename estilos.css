@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+	background:#f0f2f1;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.carta {
+  margin: 20px;
+}
+
+.carta img {
+  box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.25);
+}
+
+.carta:hover figure {
+  transform: perspective(600px) rotateY(180deg);
+  box-shadow: 0px 2px 10px 2px rgba(0,0,0,0.25);
+}
+
+figure {
+  width: 320;
+  height: 450;
+  margin: 0;
+  position: relative;
+  transition: all ease .5s;
+  transform-style: preserve-3d;
+  transform: perspective(600px) rotateY(0deg);
+}
+
+figure img {
+  width: 180px;
+  height: 275px;
+}
+
+figure .frontal,
+figure .dorso {
+  border-radius: 5px;
+  transition: all ease .5s;
+}
+
+figure .frontal {
+  display: block;
+  backface-visibility: hidden;
+}
+
+figure .dorso {
+  position: absolute;
+  top: 0;
+  transform: perspective(600px) rotateY(180deg);
+  backface-visibility: hidden;
+  overflow: auto;
+}
+
+figure .dorso hr {
+  height: 2px;
+	background:#fff;
+	border:none;
+	margin-bottom: 20px;
+	opacity: .5;
+}
+
+@media screen and (max-width: 992px) {
+	figure .trasera {
+		backface-visibility: visible;
+		transform: perspective(600px) rotateY(0deg);
+	}
+
+	.contenedor_tarjeta:hover figure {
+		transform: perspective(600px) rotateY(0deg);
+	}
+}
